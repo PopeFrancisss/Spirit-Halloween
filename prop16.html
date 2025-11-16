@@ -77,14 +77,11 @@
                 overflow-x: hidden; /* prevent horizontal scroll */
             }
 
-            /* Optionally use a mobile background image instead of video */
+            /* Keep video and scale it for mobile */
             .background-video {
-                display: none; /* hide video on mobile */
-            }
-
-            body {
-                background: url('mobile-bg.png') no-repeat center center fixed;
-                background-size: cover;
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
             }
 
             .content {
