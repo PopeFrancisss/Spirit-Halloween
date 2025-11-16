@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prop Details</title>
     <style>
@@ -14,7 +14,6 @@
             padding: 0;
             position: relative;
         }
-
         .background-video {
             position: fixed;
             top: 0;
@@ -24,7 +23,6 @@
             object-fit: cover;
             z-index: -1;
         }
-
         .content {
             position: relative;
             z-index: 1;
@@ -34,7 +32,6 @@
             display: inline-block;
             margin-top: 50px;
         }
-
         .instructions img {
             width: 200px;
             height: auto;
@@ -42,53 +39,8 @@
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
-
         .instructions img:hover {
             transform: scale(2);
-        }
-
-        /* Mobile-specific tweaks */
-        @media (max-width: 768px) {
-            .background-video {
-                width: 100vw;
-                height: 100vh;
-                object-fit: cover;
-            }
-
-            .content {
-                max-width: 90%;
-                padding: 15px;
-                margin-top: 30px;
-                font-size: 14px;
-            }
-
-            .instructions img {
-                width: 120px;
-            }
-        }
-
-        .controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        .controls button {
-            margin: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            transition: background 0.3s;
-        }
-
-        .controls button:hover {
-            background: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
@@ -100,63 +52,84 @@
 
     <div class="content">
         <h1>Dagger Mike</h1>
-
         <div class="instructions">
             <h2>Instructions</h2>
             <img src="ins42.jpg" alt="Instruction 1">
             <img src="ins43.jpg" alt="Instruction 2">
             <img src="ins44.jpg" alt="Instruction 3">
         </div>
-
         <div class="manufacturer">
             <h2>Manufacturer</h2>
             <p>Crazy Crate</p>
         </div>
-
         <div class="notes">
             <h2>Repair Notes</h2>
             <p><!-- Replace With Repair Notes --></p>
         </div>
-
         <div class="power-info">
             <h2>Power Type</h2>
             <p>6V 2A</p>
         </div>
     </div>
 
-    <div class="controls">
-        <button id="muteBtn">Unmute</button>
-        <button id="clearBtn">Clear View</button>
-    </div>
+<!-- Extra Controls -->
+<div class="controls">
+    <button id="muteBtn">Unmute</button>
+    <button id="clearBtn">Clear View</button>
+</div>
 
-    <script>
-        const video = document.querySelector(".background-video");
-        const muteBtn = document.getElementById("muteBtn");
-        const clearBtn = document.getElementById("clearBtn");
-        const contentBox = document.querySelector(".content");
-        let cleared = false;
+<style>
+    .controls {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    .controls button {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        transition: background 0.3s;
+    }
+    .controls button:hover {
+        background: rgba(255, 255, 255, 0.5);
+    }
+</style>
 
-        muteBtn.addEventListener("click", () => {
-            if (video.muted) {
-                video.muted = false;
-                muteBtn.textContent = "Mute";
-            } else {
-                video.muted = true;
-                muteBtn.textContent = "Unmute";
-            }
-        });
+<script>
+    const video = document.querySelector(".background-video");
+    const muteBtn = document.getElementById("muteBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const contentBox = document.querySelector(".content");
+    let cleared = false;
 
-        clearBtn.addEventListener("click", () => {
-            cleared = !cleared;
-            if (cleared) {
-                contentBox.style.opacity = "0";
-                clearBtn.textContent = "Show Content";
-            } else {
-                contentBox.style.opacity = "1";
-                clearBtn.textContent = "Clear View";
-            }
-        });
-    </script>
+    muteBtn.addEventListener("click", () => {
+        if (video.muted) {
+            video.muted = false;
+            muteBtn.textContent = "Mute";
+        } else {
+            video.muted = true;
+            muteBtn.textContent = "Unmute";
+        }
+    });
+
+    clearBtn.addEventListener("click", () => {
+        cleared = !cleared;
+        if (cleared) {
+            contentBox.style.opacity = "0";
+            clearBtn.textContent = "Show Content";
+        } else {
+            contentBox.style.opacity = "1";
+            clearBtn.textContent = "Clear View";
+        }
+    });
+</script>
 
 </body>
 </html>
