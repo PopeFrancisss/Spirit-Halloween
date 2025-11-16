@@ -41,7 +41,26 @@
         }
         .instructions img:hover {
             transform: scale(2);
-        }
+        }/* Mobile-specific tweaks */
+@media (max-width: 768px) {
+    .background-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .content {
+        max-width: 90%;
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 14px;
+    }
+
+    .instructions img {
+        width: 120px;
+    }
+}
+
     </style>
 </head>
 <body>
