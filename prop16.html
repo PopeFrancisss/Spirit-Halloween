@@ -47,6 +47,26 @@
             transform: scale(2);
         }
 
+        /* Mobile-specific tweaks */
+        @media (max-width: 768px) {
+            .background-video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+            }
+
+            .content {
+                max-width: 90%;
+                padding: 15px;
+                margin-top: 30px;
+                font-size: 14px;
+            }
+
+            .instructions img {
+                width: 120px;
+            }
+        }
+
         .controls {
             position: fixed;
             bottom: 20px;
@@ -70,54 +90,34 @@
         .controls button:hover {
             background: rgba(255, 255, 255, 0.5);
         }
-
-        /* Mobile-specific tweaks */
-        @media (max-width: 768px) {
-            body {
-                overflow-x: hidden; /* prevent horizontal scroll */
-            }
-
-            /* Keep video and scale it for mobile */
-            .background-video {
-                width: 100vw;
-                height: 100vh;
-                object-fit: cover;
-            }
-
-            .content {
-                max-width: 90%;
-                padding: 15px;
-                margin-top: 30px;
-                font-size: 14px;
-            }
-
-            .instructions img {
-                width: 120px;
-            }
-        }
     </style>
 </head>
 <body>
+
     <video class="background-video" autoplay loop muted>
         <source src="animatronic16.mp4" type="video/mp4">
     </video>
 
     <div class="content">
         <h1>Dagger Mike</h1>
+
         <div class="instructions">
             <h2>Instructions</h2>
             <img src="ins42.jpg" alt="Instruction 1">
             <img src="ins43.jpg" alt="Instruction 2">
             <img src="ins44.jpg" alt="Instruction 3">
         </div>
+
         <div class="manufacturer">
             <h2>Manufacturer</h2>
             <p>Crazy Crate</p>
         </div>
+
         <div class="notes">
             <h2>Repair Notes</h2>
             <p><!-- Replace With Repair Notes --></p>
         </div>
+
         <div class="power-info">
             <h2>Power Type</h2>
             <p>6V 2A</p>
@@ -157,5 +157,6 @@
             }
         });
     </script>
+
 </body>
 </html>
